@@ -1,5 +1,5 @@
 //210501012_Sude.Demirtas
-//Erman Atik
+//210501002_Erman Atik
 //Ali Aksoy 
 //Türkiye Deprem Sorgu ve Raporlama Sistemi 
 

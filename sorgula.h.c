@@ -7,14 +7,6 @@
 
 
 
-    
-
-
-
-
-
-
-
 
     return sorgula;
  }
