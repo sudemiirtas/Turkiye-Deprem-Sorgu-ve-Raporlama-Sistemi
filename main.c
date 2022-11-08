@@ -1,16 +1,16 @@
 //210501012_Sude.Demirtas
-//210501002_Erman Atik
-//Ali Aksoy 
+//210401002_Erman Atik
 //Türkiye Deprem Sorgu ve Raporlama Sistemi 
 
 #include<stdio.h>
 #include<stdlib.h>
-
+#include <string.h>
+#include"sorgula.h"
 
 /*double sorgula();
 siralama();
 kaydetme();
-ilAyristir();
+ilAyristirma();
 analiz();*/
 
 int main(){
@@ -18,15 +18,15 @@ int main(){
     int secim;
     printf("Deprem Sorgu Ve Raporlama Sistemine Hosgeldiniz\n");
     printf("Lutfen Seciminizi Yapınız:\nMENU:\n(1)Sorgulama\n(2)Siralama\n(3)Kaydetme\n(4)Ayristirma\n(5)Analiz\n(6)Cikis\n");
-    scanf("%d",secim);
+    scanf("%d",&secim);
      switch(secim)
     {
        case 1 : sorgula(); break;  
-       case 2 : siralama(); break;
-       case 3 : kaydetme(); break;
-       case 4 : ilAyristirma(); break;
-       case 5 : analiz(); break;
-       case 6 : cikis(); break;
+    //    case 2 : siralama(); break;
+    //    case 3 : kaydetme(); break;
+    //    case 4 : ilAyristirma(); break;
+    //    case 5 : analiz(); break;
+    //    case 6 : cikis(); break;
        default : printf("Gecersiz bir secim yaptiniz.!!!!!"); break; 
     }
    
