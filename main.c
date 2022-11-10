@@ -5,14 +5,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <string.h>
-#include"sorgula.h"
+#include"fonksiyonlar.h"
 
-/*double sorgula();
-siralama();
-kaydetme();
-ilAyristirma();
-analiz();*/
-
+double sorgula();
 int main(){
 
     int secim;
@@ -28,7 +23,8 @@ int main(){
     //    case 5 : analiz(); break;
     //    case 6 : cikis(); break;
        default : printf("Gecersiz bir secim yaptiniz.!!!!!"); break; 
+
+      return 0;
+    }  
     }
-   
-    return 0;
-}
+     

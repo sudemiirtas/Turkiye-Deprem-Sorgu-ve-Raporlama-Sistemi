@@ -1,0 +1,21 @@
+#pragma once
+double sorgula();
+struct depremBilgisi{
+    char  id[9];
+    char  date[11];
+    char  time[12];
+    char  latitude[6];
+    char longtitude[6];
+    char country[15];
+    char  city[15];
+    char  area[25];
+    char  direction[11];
+    char  distance[5];
+    char  depth[5];
+    char  xm[5];
+    char  md[5];
+    char  richter[5];
+    char  mw[5];
+    char  ms[5];
+    char  mb[5];
+};
