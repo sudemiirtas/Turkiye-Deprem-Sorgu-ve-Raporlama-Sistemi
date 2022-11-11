@@ -1,21 +1,31 @@
 #pragma once
-double sorgula();
-struct depremBilgisi{
-    char  id[9];
-    char  date[11];
-    char  time[12];
-    char  latitude[6];
-    char longtitude[6];
-    char country[15];
-    char  city[15];
-    char  area[25];
-    char  direction[11];
-    char  distance[5];
-    char  depth[5];
-    char  xm[5];
-    char  md[5];
-    char  richter[5];
-    char  mw[5];
-    char  ms[5];
-    char  mb[5];
+#include <stdio.h>
+#include <string.h>
+
+struct depremBilgisi {
+
+    char* id;
+    char* date;
+    char* time;
+    char* latitude;
+    char* longtitude;
+    char* country;
+    char* city;
+    char* area;
+    char* direction;
+    char* distance;
+    char* depth;
+    char* xm;
+    char* md;
+    char* richter;
+    char* mw;
+    char* ms;
+    char* mb;
 };
+
+typedef struct depremBilgisi Deprem;
+typedef struct depremBilgisi* DepremPtr;
+
+DepremPtr yapiyaTasima(char string[]);
+void sorgula();
+char bul();
