@@ -1,4 +1,4 @@
-#include "fonkiyonlar.h"
+#include "fonksiyonlar.h"
 
 
 DepremPtr yapiyaTasima(char string[]) {
@@ -59,8 +59,9 @@ void sorgula() {
     printf("Hangi Kritere Gore Siralamak Istiyorsunuz?\n");
     printf("Secenekler:\n[1]Zaman Araligi\n[2]Il\n[3]Ilce\n[4]Richter Buyuklugu\n");
     scanf_s("%d", &secim);
+  	 bul(secim);
 
-	Deprem deprem1;
+/*	Deprem deprem1;
 	DepremPtr deprem1Ptr=&deprem1;
 	
 	FILE* filePtr;
@@ -79,24 +80,25 @@ void sorgula() {
 		fgets(satir,199,filePtr);
 		deprem1Ptr=yapiyaTasima(satir);
 	}
-
+	char bul();
 	//if(strlen(deprem.id)==0){
 	//	printf(" ");
-
-
+*/
 }
-char bul(){
+void bul(int i){
 	
 	Deprem hi;
 	char ara[20];
-	printf("Aramak Istediginizi Girin\n");
-	scanf("%s",&ara);
+	
 	FILE *filePtr;
 	errno_t err=fopen_s(&filePtr,"earthquake.csv","r+");
 	
-	hi.city=(char*)malloc(sizeof(char)*100);
-	//deprem.country=(char*)malloc(sizeof(char)*100);
+	if(i==2){
+	printf("Hangi Ili Aramak Istiyorsunuz");
+	scanf("%s",&ara);
 	
+	hi.city=(char*)malloc(sizeof(char)*100);
+		
 	while(!feof(filePtr)){
 		fscanf(filePtr,"%s ",hi.city);
 		
@@ -106,8 +108,45 @@ char bul(){
 		}
 		fclose(filePtr)	;
 		
+	}	
 	}
+	else if(i==3){
+	printf("Hangi Ilceyi Aramak Istiyorsunuz");
+	scanf("%s",&ara);
+	hi.area=(char*)malloc(sizeof(char)*100);
+		
+	while(!feof(filePtr)){
+		fscanf(filePtr,"%s ",hi.area);
+		
+		if(strcmp(hi.area,ara)==0)
+		{
+			printf("%s\n",hi.area);
+		}
+		fclose(filePtr)	;
+		
+	}
+	}
+	else if(i==4){
+	printf("Hangi Richter Buyuklugunu Aramak Istiyorsunuz");
+	scanf("%s",&ara);
+	hi.richter=(char*)malloc(sizeof(char)*100);
 	
+	while(!feof(filePtr)){
+		fscanf(filePtr,"%s ",hi.richter);
+		
+		if(strcmp(hi.richter,ara)==0)
+		{
+			printf("%s\n",hi.richter);
+		}
+		fclose(filePtr)	;
+	}	
+	else
+	{
+		printf("secim hatali");
+		
+		
+	}
+	}
 	
 	
 	

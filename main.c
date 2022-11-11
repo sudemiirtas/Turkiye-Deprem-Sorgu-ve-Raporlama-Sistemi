@@ -7,7 +7,7 @@
 #include <string.h>
 #include"fonksiyonlar.h"
 
-double sorgula();
+
 int main(){
 
     int secim;
@@ -16,7 +16,7 @@ int main(){
     scanf("%d",&secim);
      switch(secim)
     {
-       case 1 : sorgula(); break;  
+       case 1 : bul(); break;  
     //    case 2 : siralama(); break;
     //    case 3 : kaydetme(); break;
     //    case 4 : ilAyristirma(); break;
