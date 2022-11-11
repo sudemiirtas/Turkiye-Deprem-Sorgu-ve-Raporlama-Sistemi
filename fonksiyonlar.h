@@ -28,4 +28,4 @@ typedef struct depremBilgisi* DepremPtr;
 
 DepremPtr yapiyaTasima(char string[]);
 void sorgula();
-char bul();
+void bul();

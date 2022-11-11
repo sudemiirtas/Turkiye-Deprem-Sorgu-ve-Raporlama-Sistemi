@@ -1,4 +1,4 @@
-#include "fonksiyonlar.h"
+#include "fonkiyonlar.h"
 
 
 DepremPtr yapiyaTasima(char string[]) {
@@ -89,7 +89,7 @@ void bul(int i){
 	
 	Deprem hi;
 	char ara[20];
-	
+	DepremPtr sonAranan[];
 	FILE *filePtr;
 	errno_t err=fopen_s(&filePtr,"earthquake.csv","r+");
 	
@@ -105,6 +105,7 @@ void bul(int i){
 		if(strcmp(hi.city,ara)==0)
 		{
 			printf("%s\n",hi.city);
+			sonAranan[0]=&hi
 		}
 		fclose(filePtr)	;
 		
@@ -121,6 +122,7 @@ void bul(int i){
 		if(strcmp(hi.area,ara)==0)
 		{
 			printf("%s\n",hi.area);
+			sonAranan[0]=&hi
 		}
 		fclose(filePtr)	;
 		
@@ -137,21 +139,44 @@ void bul(int i){
 		if(strcmp(hi.richter,ara)==0)
 		{
 			printf("%s\n",hi.richter);
-		}
-		fclose(filePtr)	;
+			sonAranan[0]=&hi
+	}
 	}	
 	else
 	{
 		printf("secim hatali");
 		
-		
+	}	
 	}
+void kaydet(){
+	
+	DepremPtr dizi[sayi];
+	int kaydedilen=0;
+	char fileName[20];//buraya kullanicin istedigi isim gelicek
+	
+	FILE *filePtr;
+	errno_t err=fopen_s(&filePtr,"earthquake.csv","w");
+	
+
+ if(filePtr==0)
+	{
+		printf("dosya nerde!!!!");
+		return 0;
+	}
+	
+	while(!feof(filePtr)){
+	
+		fgets(dizi, sizeof dizi, stdin);
+   		fprintf(filePtr, "%s", dizi);
+  		fclose(filePtr);
+	
 	}
 	
 	
 	
 	
 	
+}	
 	
 	
 	
@@ -166,4 +191,6 @@ void bul(int i){
 	
 	
 	
-}
+	
+	
+	
