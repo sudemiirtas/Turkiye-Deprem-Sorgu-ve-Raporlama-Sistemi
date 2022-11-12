@@ -27,5 +27,6 @@ typedef struct depremBilgisi Deprem;
 typedef struct depremBilgisi* DepremPtr;
 
 DepremPtr yapiyaTasima(char string[]);
+void satirYazdir(DepremPtr deprem);
 void sorgula();
-void bul();
+void bul(int i);
