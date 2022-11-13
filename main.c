@@ -5,7 +5,7 @@
 
 int main() {
 
-
+    static int hafizaSayaci = -1;
     int secim = 0;
  /*   char satir[200] = "";
 
@@ -35,9 +35,6 @@ int main() {
     }
     */
 
-
-    char* merhaba = "selam";
-    char* merhab ="selam";
 
      printf("Deprem Sorgu Ve Raporlama Sistemine Hosgeldiniz\n");
      printf("Lutfen Seciminizi Yapýnýz:\nMENU:\n(1)Sorgulama\n(2)Siralama\n(3)Kaydetme\n(4)Ayristirma\n(5)Analiz\n(6)Cikis\n");

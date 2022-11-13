@@ -1,5 +1,6 @@
 #pragma once
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 struct depremBilgisi {
@@ -27,6 +28,8 @@ typedef struct depremBilgisi Deprem;
 typedef struct depremBilgisi* DepremPtr;
 
 DepremPtr yapiyaTasima(char string[]);
-void satirYazdir(DepremPtr deprem);
+void satirYazdir(DepremPtr depremPtr);
 void sorgula();
-void bul(int i);
+DepremPtr bul(int i);
+int hafizayaEkle(DepremPtr depremPtr, DepremPtr dizi[]);
+void hafizaYazdir(DepremPtr hafiza[], const int length);

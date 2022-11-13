@@ -6,7 +6,6 @@ DepremPtr yapiyaTasima(char string[]) {
 
     char* kalan1 = "";
     char* kalan2 = "";
-    char* sonuncu;
     Deprem deprem;
 	DepremPtr depremPtr = &deprem;
 
@@ -216,12 +215,15 @@ DepremPtr bul(int gelen) {
     if (filePtr == 0)
     {
         printf("dosya nerde !!!");
-      	return;
+      	return NULL;
     }
 
     Deprem deprem1;
     DepremPtr deprem1Ptr = &deprem1;
     DepremPtr hafiza[11850];
+    int hafizaSonElemani = 0;
+
+
 
         if (gelen == 2)
         {
@@ -234,17 +236,11 @@ DepremPtr bul(int gelen) {
 
                 fgets(satir, 199, filePtr);
                 deprem1Ptr = yapiyaTasima(satir);
-               // printf("selam after yapi \n");
-
-               //satirYazdir(deprem1Ptr);
-               /* printf("selam after yazdir \n"); */
-
-              //  printf("\nOOOOOOOOOOOOOOOOOO %d OOOOOOOOOOOOOOOOOO\n", strcmp( ara , deprem1Ptr->city ));
-
+          
                 if (strcmp( deprem1Ptr->city,ara  ) == 0)
                 {
                     satirYazdir(deprem1Ptr);
-                    hafizayaEkle(deprem1Ptr, hafiza);
+                    hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
 
                 }
                 
@@ -253,7 +249,7 @@ DepremPtr bul(int gelen) {
             }
 
             fclose(filePtr);
-
+            
             return hafiza;
 
         }
@@ -272,7 +268,7 @@ DepremPtr bul(int gelen) {
                 if (strcmp(deprem1Ptr->area, ara) == 0)
                 {
                     satirYazdir(deprem1Ptr);
-                    hafizayaEkle(deprem1Ptr, hafiza);
+                    hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
                 }
                
 
@@ -297,7 +293,7 @@ DepremPtr bul(int gelen) {
                 if (strcmp(deprem1Ptr->richter, ara) == 0)
                 {
                     satirYazdir(deprem1Ptr);
-                    hafizayaEkle(deprem1Ptr, hafiza);
+                  hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
                 }
             
 
@@ -314,12 +310,26 @@ DepremPtr bul(int gelen) {
     
 }
 
-void hafizayaEkle(DepremPtr depremPtr, DepremPtr dizi[]) {
+int hafizayaEkle(DepremPtr depremPtr, DepremPtr dizi[]) {
 
-    static int sayac = 0;
-    for (sayac = 0; sayac < 11850; sayac++) {
+    static int hafizaSayaci = -1;
+    
+        dizi[hafizaSayaci+1] = depremPtr;
+        hafizaSayaci++;
+        printf("   %d   \n",hafizaSayaci);
 
-        dizi[sayac] = depremPtr;
+        return hafizaSayaci;
+}
+void hafizaYazdir(DepremPtr hafiza[], const int length) {
 
-    }
+
+
+
+
+
+
+
+
+
+
 }
