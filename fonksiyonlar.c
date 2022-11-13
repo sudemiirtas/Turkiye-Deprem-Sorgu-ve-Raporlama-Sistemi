@@ -204,7 +204,7 @@ void sorgula() {
 
   
 }
-void bul(int gelen) {
+DepremPtr bul(int gelen) {
 
     char ara[20];
     ara[19] = '\0';
@@ -221,7 +221,7 @@ void bul(int gelen) {
 
     Deprem deprem1;
     DepremPtr deprem1Ptr = &deprem1;
-
+    DepremPtr hafiza[11850];
 
         if (gelen == 2)
         {
@@ -244,7 +244,7 @@ void bul(int gelen) {
                 if (strcmp( deprem1Ptr->city,ara  ) == 0)
                 {
                     satirYazdir(deprem1Ptr);
-                    //printf("selam \n");
+                    hafizayaEkle(deprem1Ptr, hafiza);
 
                 }
                 
@@ -253,6 +253,8 @@ void bul(int gelen) {
             }
 
             fclose(filePtr);
+
+            return hafiza;
 
         }
         else if (gelen == 3)
@@ -270,6 +272,7 @@ void bul(int gelen) {
                 if (strcmp(deprem1Ptr->area, ara) == 0)
                 {
                     satirYazdir(deprem1Ptr);
+                    hafizayaEkle(deprem1Ptr, hafiza);
                 }
                
 
@@ -277,6 +280,7 @@ void bul(int gelen) {
             }
             fclose(filePtr);
 
+            return hafiza;
         }
         else if (gelen == 4)
         {
@@ -293,15 +297,29 @@ void bul(int gelen) {
                 if (strcmp(deprem1Ptr->richter, ara) == 0)
                 {
                     satirYazdir(deprem1Ptr);
+                    hafizayaEkle(deprem1Ptr, hafiza);
                 }
             
 
             }
             fclose(filePtr);
+
+            return hafiza;
         }
         else
         {
             printf("secim hatali");
+            return NULL;
         }
     
+}
+
+void hafizayaEkle(DepremPtr depremPtr, DepremPtr dizi[]) {
+
+    static int sayac = 0;
+    for (sayac = 0; sayac < 11850; sayac++) {
+
+        dizi[sayac] = depremPtr;
+
+    }
 }
