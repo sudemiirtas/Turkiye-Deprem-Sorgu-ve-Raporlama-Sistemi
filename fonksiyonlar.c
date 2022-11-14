@@ -1,14 +1,13 @@
-#include "fonkiyonlar.h"
+#include "fonksiyonlar.h"
 
 
 DepremPtr yapiyaTasima(char string[]) {
 
 
-	char* kalan1 = "";
-	char* kalan2 = "";
-
+    char* kalan1 = "";
+    char* kalan2 = "";
     Deprem deprem;
-
+	DepremPtr depremPtr = &deprem;
 
     deprem.id = strtok_s(string, ",", &kalan1);
     deprem.date = strtok_s(kalan1, ",", &kalan2);
@@ -26,29 +25,170 @@ DepremPtr yapiyaTasima(char string[]) {
     deprem.richter = strtok_s(kalan1, ",", &kalan2);
     deprem.mw = strtok_s(kalan2, ",", &kalan1);
     deprem.ms = strtok_s(kalan1, ",", &kalan2);
-    deprem.mb = strtok_s(kalan2, "\0", &kalan1);
+    deprem.mb = strtok_s(kalan2, "", &kalan1);
 
-    printf("%s ", deprem.id);
-    printf("%s ", deprem.date);
-    printf("%s ", deprem.time);
-    printf("%s ", deprem.latitude);
-    printf("%s ", deprem.longtitude);
-    printf("%s ", deprem.country);
-    printf("%s ", deprem.city);
-    printf("%s ", deprem.area);
-    printf("%s ", deprem.direction);
-    printf("%s ", deprem.distance);
-    printf("%s ", deprem.depth);
-    printf("%s ", deprem.xm);
-    printf("%s ", deprem.md);
-    printf("%s ", deprem.richter);
-    printf("%s ", deprem.mw);
-    printf("%s ", deprem.ms);
-    printf("%s ", deprem.mb);
+   // printf("%s", deprem.mb);
 
 
+    //satirYazdir(depremPtr);
+    
 
-    return &deprem;
+
+    return depremPtr;
+
+}
+
+
+void satirYazdir(DepremPtr depremPtr) {
+
+  /* Deprem gelenDeprem;
+    DepremPtr gelenDepremPtr = deprem;
+  */
+   // kaydet();
+
+    if (strlen(depremPtr->id) != 0)
+    {
+        printf("%s ", depremPtr->id);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->date) != 0)
+    {
+        printf("%s ", depremPtr->date);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->time) != 0)
+    {
+        printf("%s ", depremPtr->time);
+
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->latitude) != 0)
+    {
+        printf("%s ", depremPtr->latitude);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->longtitude) != 0)
+    {
+        printf("%s ", depremPtr->longtitude);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->country) != 0)
+    {
+        printf("%s ", depremPtr->country);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->city) != 0)
+    {
+        printf("%s ", depremPtr->city);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->area) != 0)
+    {
+        printf("%s ", depremPtr->area);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->direction) != 0)
+    {
+        printf("%s ", depremPtr->direction);
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->distance) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->distance));
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->depth) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->depth));
+    }
+    else {
+        printf("");
+    }
+  /*  if (strlen(depremPtr->xm) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->xm));
+    }
+    else {
+        printf("");
+    }*/
+    if (strlen(depremPtr->md) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->md));
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->richter) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->richter));
+    }
+    else {
+        printf("");
+    }
+    if (strlen(depremPtr->mw) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->mw));
+    }
+    else {
+        printf("");
+    }
+    /*if (strlen(depremPtr->ms) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->ms));
+    }
+    else {
+        printf("");
+    }*/
+    if (strlen(depremPtr->mb) != 0)
+    {
+        printf("%.1f ", atof(depremPtr->mb));
+    }
+    else {
+        printf("");
+    }
+    printf("\n");
+
+
+
+    /*
+    printf("%s ", depremPtr->id);
+    printf("%s ", depremPtr->time);
+    printf("%s ", depremPtr->latitude);
+    printf("%s ", depremPtr->longtitude);
+    printf("%s ", depremPtr->country);
+    printf("%s ", depremPtr->city);
+    printf("%s ", depremPtr->area);
+    printf("%s ", depremPtr->direction);
+    printf("%.1f ", atof(depremPtr->distance));
+    printf("%.1f ", atof(depremPtr->depth));
+    printf("%.1f ", atof(depremPtr->xm));
+    printf("%.1f ", atof(depremPtr->md));
+    printf("%.1f ", atof(depremPtr->richter));
+    printf("%.1f ", atof(depremPtr->mw));
+    printf("%.1f ", atof(depremPtr->ms));
+    printf("%.1f ", atof(depremPtr->mb));
+    */
+    
 
 }
 
@@ -59,138 +199,137 @@ void sorgula() {
     printf("Hangi Kritere Gore Siralamak Istiyorsunuz?\n");
     printf("Secenekler:\n[1]Zaman Araligi\n[2]Il\n[3]Ilce\n[4]Richter Buyuklugu\n");
     scanf_s("%d", &secim);
-  	 bul(secim);
+    bul(secim);
 
-/*	Deprem deprem1;
-	DepremPtr deprem1Ptr=&deprem1;
-	
-	FILE* filePtr;
-	char satir[200]="";
-	errno_t err=fopen_s(&filePtr,"earthquake.csv","r+");
-	
-	if(filePtr==0)
-	{
-		printf("dosya nerde!!!!");
-		return 0;
-	}
-	int i;
-	for(i=0;i<20968;i++) //bul fonk icin
-
-	{
-		fgets(satir,199,filePtr);
-		deprem1Ptr=yapiyaTasima(satir);
-	}
-	char bul();
-	//if(strlen(deprem.id)==0){
-	//	printf(" ");
-*/
+  
 }
-void bul(int i){
-	
-	Deprem hi;
-	char ara[20];
-	DepremPtr sonAranan[];
-	FILE *filePtr;
-	errno_t err=fopen_s(&filePtr,"earthquake.csv","r+");
-	
-	if(i==2){
-	printf("Hangi Ili Aramak Istiyorsunuz");
-	scanf("%s",&ara);
-	
-	hi.city=(char*)malloc(sizeof(char)*100);
-		
-	while(!feof(filePtr)){
-		fscanf(filePtr,"%s ",hi.city);
-		
-		if(strcmp(hi.city,ara)==0)
-		{
-			printf("%s\n",hi.city);
-			sonAranan[0]=&hi
-		}
-		fclose(filePtr)	;
-		
-	}	
-	}
-	else if(i==3){
-	printf("Hangi Ilceyi Aramak Istiyorsunuz");
-	scanf("%s",&ara);
-	hi.area=(char*)malloc(sizeof(char)*100);
-		
-	while(!feof(filePtr)){
-		fscanf(filePtr,"%s ",hi.area);
-		
-		if(strcmp(hi.area,ara)==0)
-		{
-			printf("%s\n",hi.area);
-			sonAranan[0]=&hi
-		}
-		fclose(filePtr)	;
-		
-	}
-	}
-	else if(i==4){
-	printf("Hangi Richter Buyuklugunu Aramak Istiyorsunuz");
-	scanf("%s",&ara);
-	hi.richter=(char*)malloc(sizeof(char)*100);
-	
-	while(!feof(filePtr)){
-		fscanf(filePtr,"%s ",hi.richter);
-		
-		if(strcmp(hi.richter,ara)==0)
-		{
-			printf("%s\n",hi.richter);
-			sonAranan[0]=&hi
-	}
-	}	
-	else
-	{
-		printf("secim hatali");
-		
-	}	
-	}
-void kaydet(){
-	
-	DepremPtr dizi[sayi];
-	int kaydedilen=0;
-	char fileName[20];//buraya kullanicin istedigi isim gelicek
-	
-	FILE *filePtr;
-	errno_t err=fopen_s(&filePtr,"earthquake.csv","w");
-	
+DepremPtr bul(int gelen) {
 
- if(filePtr==0)
-	{
-		printf("dosya nerde!!!!");
-		return 0;
-	}
-	
-	while(!feof(filePtr)){
-	
-		fgets(dizi, sizeof dizi, stdin);
-   		fprintf(filePtr, "%s", dizi);
-  		fclose(filePtr);
-	
-	}
-	
-	
-	
-	
-	
-}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+    char ara[20];
+    ara[19] = '\0';
+    char satir[200] = "";
+    int i;
+
+    FILE* filePtr;
+    fopen_s( &filePtr,"Earthquake.csv", "r");
+    if (filePtr == 0)
+    {
+        printf("dosya nerde !!!");
+      	return NULL;
+    }
+
+    Deprem deprem1;
+    DepremPtr deprem1Ptr = &deprem1;
+    DepremPtr hafiza[11850];
+    int hafizaSonElemani = 0;
+
+
+
+        if (gelen == 2)
+        {
+
+            printf("Hangi Ili Aramak Istiyorsunuz\n");
+            scanf_s("%s", &ara, 19);
+
+            for (i = 0; i < 24008; i++)
+            {
+
+                fgets(satir, 199, filePtr);
+                deprem1Ptr = yapiyaTasima(satir);
+          
+                if (strcmp( deprem1Ptr->city,ara  ) == 0)
+                {
+                    satirYazdir(deprem1Ptr);
+                    hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
+
+                }
+                
+
+
+            }
+
+            fclose(filePtr);
+            
+            return hafiza;
+
+        }
+        else if (gelen == 3)
+        {
+
+            printf("Hangi Ilceyi Aramak Istiyorsunuz\n");
+            scanf_s("%s", &ara, 19);
+
+            for ( i = 0; i < 24008; i++)
+            {
+
+                fgets(satir, 199, filePtr);
+                deprem1Ptr = yapiyaTasima(satir);
+
+                if (strcmp(deprem1Ptr->area, ara) == 0)
+                {
+                    satirYazdir(deprem1Ptr);
+                    hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
+                }
+               
+
+
+            }
+            fclose(filePtr);
+
+            return hafiza;
+        }
+        else if (gelen == 4)
+        {
+
+            printf("Hangi Richter Buyuklugunu Aramak Istiyorsunuz\n");
+            scanf_s("%s", &ara, 19);
+
+            for ( i = 0; i < 24008; i++)
+            {
+
+                fgets(satir, 199, filePtr);
+                deprem1Ptr = yapiyaTasima(satir);
+
+                if (strcmp(deprem1Ptr->richter, ara) == 0)
+                {
+                    satirYazdir(deprem1Ptr);
+                  hafizaSonElemani = hafizayaEkle(deprem1Ptr, hafiza);
+                }
+            
+
+            }
+            fclose(filePtr);
+
+            return hafiza;
+        }
+        else
+        {
+            printf("secim hatali");
+            return NULL;
+        }
+    
+}
+
+int hafizayaEkle(DepremPtr depremPtr, DepremPtr dizi[]) {
+
+    static int hafizaSayaci = -1;
+    
+        dizi[hafizaSayaci+1] = depremPtr;
+        hafizaSayaci++;
+        printf("   %d   \n",hafizaSayaci);
+
+        return hafizaSayaci;
+}
+void hafizaYazdir(DepremPtr hafiza[], const int length) {
+
+
+
+
+
+
+
+
+
+
+
+}

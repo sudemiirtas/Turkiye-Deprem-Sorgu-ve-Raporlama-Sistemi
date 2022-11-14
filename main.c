@@ -1,9 +1,4 @@
-//210501012_Sude.Demirtas
-//210401002_Erman Atik
-//TÃ¼rkiye Deprem Sorgu ve Raporlama Sistemi 
-
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include"fonkiyonlar.h"
 
@@ -27,5 +22,9 @@ int main(){
 
       return 0;
     }  
-    }
-     
+}
+
+
+
+
+
