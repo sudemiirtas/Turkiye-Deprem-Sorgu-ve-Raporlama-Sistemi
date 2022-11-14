@@ -1,6 +1,11 @@
-#include <stdio.h>
+//210501012_Sude.Demirtas
+//210401002_Erman Atik
+//TÃ¼rkiye Deprem Sorgu ve Raporlama Sistemi 
+
+#include<stdio.h>
+#include<stdlib.h>
 #include <string.h>
-#include"fonkiyonlar.h"
+#include"fonksiyonlar.h"
 
 void sorgula();
 int main(){
@@ -22,9 +27,5 @@ int main(){
 
       return 0;
     }  
-}
-
-
-
-
-
+    }
+     
